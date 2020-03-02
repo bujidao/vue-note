@@ -17,8 +17,8 @@ jobs:
         ACTION_DEPLOY_KEY: ${{ secrets.VUE_NOTE_BLOG }}
       run: |
         mkdir -p ~/.ssh/
-        echo "$ACTION_DEPLOY_KEY" | tr -d '\r' > ~/.ssh/vue_note
-        chmod 600 ~/.ssh/vue_note
+        echo "$ACTION_DEPLOY_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
         ssh-keyscan github.com >> ~/.ssh/known_hosts
         git config --global user.name 'alex ceng'
         git config --global user.email 'izengjing.cn@gmail.com'
