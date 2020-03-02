@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "docs": "npx vuepress dev docs",
     "docs:dev": "npx vuepress dev docs",
     "docs:build": "vuepress build docs"
   }

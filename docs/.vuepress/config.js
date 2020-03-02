@@ -1,5 +1,5 @@
 module.exports = {
-    dest: 'dist',
+    dest: 'gh-pages',
     base: '/vue-note/',
     title: 'Vue Note',
     description: 'Just playing around',
