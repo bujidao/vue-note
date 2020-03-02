@@ -12,6 +12,14 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 12.x
+    - name: Install VuePress
+      run: |
+        npm install -g vuepress
+        npm i
+    - name: Build VuePress
+      run: |
+        npm run docs:build
+
     - name: Set Git Config
       env:
         ACTION_DEPLOY_KEY: ${{ secrets.VUE_NOTE_BLOG }}
@@ -22,15 +30,7 @@ jobs:
         ssh-keyscan github.com >> ~/.ssh/known_hosts
         git config --global user.name 'alex ceng'
         git config --global user.email 'izengjing.cn@gmail.com'
-    - name: Install VuePress
-      run: |
-        npm install -g vuepress
-        npm i
-    - name: Build VuePress
-      run: |
-        npm run docs:build
-    - name: Push VuePress
-      run:
+        cd dist
         git add .
         git commit -m "update"
         git remote add origin git@github.com:bujidao/vue-note.git
